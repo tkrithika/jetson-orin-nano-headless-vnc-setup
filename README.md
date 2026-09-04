@@ -444,21 +444,21 @@ If successful, the Jetson desktop should appear on your client machine.
 
 Verify:
 
-Desktop loads correctly
+- Desktop loads correctly
 
-Resolution matches configured EDID
+- Resolution matches configured EDID
 
-Mouse and keyboard input function normally
+- Mouse and keyboard input function normally
 
-GPU acceleration remains active
+- GPU acceleration remains active
 
-If the connection fails, ensure:
+- If the connection fails, ensure:
 
-Port 5900 is not blocked by firewall
+- Port 5900 is not blocked by firewall
 
-x11vnc is still running
+- x11vnc is still running
 
-The graphical session on :0 is active
+- The graphical session on :0 is active
 
 ---
 
@@ -568,9 +568,9 @@ Ensure that the graphical session is active:
 DISPLAY=:0 xrandr
 ```
 If you receive:
-```
+
 Can't open display :0
-```
+
 Possible causes:
 
 Graphical target not enabled

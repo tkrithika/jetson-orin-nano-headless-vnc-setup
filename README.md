@@ -643,6 +643,25 @@ vncviewer <jetson-ip>:5900
 
 If the systemd service is active, the Jetson desktop should load immediately, even without a physical monitor connected.
 
+### 11.6 VNC Shows the Desktop Briefly, Then Disconnects
+
+**Symptom:** The VNC window opens for a second and closes, while SSH still works.
+This usually happens after the Jetson or the laptop switches networks.
+
+**Cause:** A previous VNC connection did not close cleanly. x11vnc still treats it
+as connected and refuses new viewers. The log shows `refusing new client`.
+
+**Check:**
+
+    sudo journalctl -u x11vnc -n 60 --no-pager
+
+**Fix:**
+
+    sudo systemctl restart x11vnc
+
+**Prevention:** The `-shared` option in the service file (Section 10.1)
+allows new connections even if an old one is stuck.
+
 ---
 
 

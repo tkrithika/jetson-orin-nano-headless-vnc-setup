@@ -383,6 +383,11 @@ Screen 0: minimum 8 x 8, current 1920 x 1080, maximum 32767 x 32767
 DP-0 connected primary 1920x1080+0+0
    1920x1080     60.00*
 ```
+
+> **Note:** If a physical monitor is still connected while testing, `xrandr` may report
+> that monitor's resolution instead of the EDID resolution. Run the final check with
+> the monitor disconnected.
+
 The presence of a valid resolution confirms:
 
 Xorg successfully initialized

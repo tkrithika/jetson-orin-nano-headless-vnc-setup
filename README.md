@@ -81,6 +81,13 @@ Remote administrative access
 
 The system will use **x11vnc**, which attaches to the active X session and mirrors the existing desktop environment rather than creating a separate virtual session.
 
+### 3.0 Install a Text Editor (Fresh Images)
+
+A freshly flashed JetPack image may not include `nano`, which later steps use:
+
+    sudo apt update
+    sudo apt install nano -y
+
 ### 3.1 Install x11vnc
 
 Update package lists and install the VNC server:

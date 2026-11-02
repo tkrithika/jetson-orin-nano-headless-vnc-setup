@@ -305,14 +305,22 @@ Edit the GDM custom configuration file:
 sudo nano /etc/gdm3/custom.conf
 ```
 
-Locate the [daemon] section and configure it as follows:
-```
-[daemon]
-AutomaticLoginEnable=true
-AutomaticLogin=<your-username>
-```
+Locate the `[daemon]` section. The default file only contains **commented examples**
+(lines starting with `#`), so auto-login is off until you add uncommented lines.
+Add the following below the examples:
+
+    AutomaticLoginEnable=true
+    AutomaticLogin=<your-username>
+
 Replace <your-username> with the actual Linux user account on the Jetson.
 
+Also make sure `WaylandEnable=false` is present and uncommented in the same section,
+since x11vnc requires an Xorg session.
+
+Verify:
+
+    grep -iE "^AutomaticLogin|^WaylandEnable" /etc/gdm3/custom.conf
+    
 Save the file and exit.
 
 ### 7.2 Reboot the System
